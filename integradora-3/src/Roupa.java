@@ -1,13 +1,23 @@
 public class Roupa {
     private String tamanho;
     private String tipo;
-    private String eNovo;
+    private String eUsada;
     private String importada;
+
+    private int contador = 0;
+
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
 
     public Roupa(String tamanho, String tipo, String eNovo, String importada) {
         this.tamanho = tamanho;
         this.tipo = tipo;
-        this.eNovo = eNovo;
+        this.eUsada = eNovo;
         this.importada = importada;
     }
 
@@ -28,11 +38,11 @@ public class Roupa {
     }
 
     public String geteNovo() {
-        return eNovo;
+        return eUsada;
     }
 
     public void seteNovo(String eNovo) {
-        this.eNovo = eNovo;
+        this.eUsada = eNovo;
     }
 
     public String getImportada() {

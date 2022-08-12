@@ -14,24 +14,33 @@ public class RoupaFactory {
 
     public Roupa getRoupa (String tamanho, String tipo, String eNovo, String importada){
         String id = "id: " + tamanho + ":" + tipo+ ":" +eNovo+ ":" +importada;
-        if(!enovo(eNovo)){
+        if(eUsado(eNovo)){
            if(roupasUsadas.containsKey(id)){
-                return roupasUsadas.get(id);
+                Roupa roupa = roupasUsadas.get(id);
+                roupa.setContador(roupa.getContador() + 1);
+                return roupa;
            }
            roupasUsadas.put(id, new Roupa(tamanho, tipo, eNovo, importada));
+        } if(eImportada(importada)){
+            if(roupasImportadas.containsKey(id)){
+                Roupa roupa = roupasImportadas.get(id);
+                roupa.setContador(roupa.getContador() + 1);
+                return roupa;
+            }
+            roupasImportadas.put(id, new Roupa(tamanho, tipo, eNovo, importada));
         }
         //colocar outras validações para adicionar dentro das listas correspondentes, através de outros ifsssss
         return null;
     }
 
-    public boolean enovo(String roupa){
-        if(roupa.equalsIgnoreCase("novo")){
+    public boolean eUsado(String roupa){
+        if(roupa.equalsIgnoreCase("usado")){
             return true;
         }
         return false;
     }
 
-    public boolean importado(String roupa){
+    public boolean eImportada(String roupa){
         if(roupa.equalsIgnoreCase("importado")){
             return true;
         }
