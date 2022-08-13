@@ -14,10 +14,10 @@ public class Roupa {
         this.contador = contador;
     }
 
-    public Roupa(String tamanho, String tipo, String eNovo, String importada) {
+    public Roupa(String tamanho, String tipo, String eUsado, String importada) {
         this.tamanho = tamanho;
         this.tipo = tipo;
-        this.eUsada = eNovo;
+        this.eUsada = eUsado;
         this.importada = importada;
     }
 
@@ -41,8 +41,8 @@ public class Roupa {
         return eUsada;
     }
 
-    public void seteNovo(String eNovo) {
-        this.eUsada = eNovo;
+    public void seteNovo(String eUsado) {
+        this.eUsada = eUsado;
     }
 
     public String getImportada() {
